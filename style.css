@@ -357,6 +357,13 @@ section {
     font-size: 1.1rem;
 }
 
+.contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 footer {
     text-align: center;
     padding: 2rem 0;
