@@ -68,11 +68,8 @@ export function Hero({ user, loading }: HeroProps) {
             >
               <i className="fab fa-github"></i>
             </a>
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/ude-righteousness-864898308" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="#" aria-label="Twitter">
-              <i className="fab fa-twitter"></i>
             </a>
           </div>
         </div>
