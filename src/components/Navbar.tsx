@@ -27,7 +27,13 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
   return (
     <nav className="navbar">
       <div className="container">
-        <a href="#home" className="logo">RF</a>
+        <a href="#home" className="logo">
+          <img
+            src="https://avatars.githubusercontent.com/u/119728765?v=4"
+            alt="Righteousness"
+            className="logo-img"
+          />
+        </a>
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
           {navLinks.map((link) => (
             <li key={link.href}>

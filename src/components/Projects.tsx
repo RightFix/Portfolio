@@ -39,8 +39,14 @@ export function Projects({ repos, loading, error }: ProjectsProps) {
   }, [repos, filter]);
 
   const languages = useMemo(() => {
-    const langs = [...new Set(repos.map((r) => r.language).filter(Boolean))];
-    return ['All', ...langs] as string[];
+    const langCounts: Record<string, number> = {};
+    repos.forEach((r) => {
+      if (r.language) {
+        langCounts[r.language] = (langCounts[r.language] || 0) + 1;
+      }
+    });
+    const langs = Object.keys(langCounts).sort();
+    return [{ name: 'All', count: repos.length }, ...langs.map((l) => ({ name: l, count: langCounts[l] }))];
   }, [repos]);
 
   const getLangColor = (lang: string | null) => LANGUAGE_COLORS[lang ?? ''] ?? '#6e7681';
@@ -51,13 +57,14 @@ export function Projects({ repos, loading, error }: ProjectsProps) {
         <h2 className="section-title">My Projects</h2>
         {!loading && !error && repos.length > 0 && (
           <div className="filter-bar">
-            {languages.map((lang) => (
+            {languages.map(({ name, count }) => (
               <button
-                key={lang}
-                className={`filter-btn ${filter === lang ? 'active' : ''}`}
-                onClick={() => setFilter(lang)}
+                key={name}
+                className={`filter-btn ${filter === name ? 'active' : ''}`}
+                onClick={() => setFilter(name)}
               >
-                {lang}
+                {name}
+                <span className="filter-count">{count}</span>
               </button>
             ))}
           </div>
