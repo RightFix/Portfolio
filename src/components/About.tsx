@@ -35,7 +35,7 @@ export function About() {
               and contributing to open source projects.
             </p>
             <p>
-              I work at <strong>Bluesea Mobile</strong>, building innovative solutions.
+              I worked at <strong>Bluesea Mobile</strong>, building innovative solutions.
               With a focus on clean code and user experience, I continuously
               learning and adapting to new technologies.
             </p>
